@@ -115,7 +115,7 @@ window.addEventListener("load", function() {
       if (checkCollision(player, enemy)) {
         // Stop the game
         if (life === 0) {
-          alert("You were defeated in battle!");
+          alert("You were smashed by an asteroid!");
           gameLive = false;
         }
 
