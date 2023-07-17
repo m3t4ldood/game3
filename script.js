@@ -87,7 +87,7 @@ window.addEventListener("load", function() {
   var update = function() {
     // Check if you've won the game
     if (checkCollision(player, goal)) {
-      alert("You have completed the quest!");
+      alert("You have made it back to Earth!");
       level += 1;
       life += 1;
       player.speedX += 1;
