@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <title>Roku App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <!-- Roku logo or app title -->
+  </header>
+  <nav>
+    <!-- Navigation menu for different app sections or categories -->
+  </nav>
+  <main>
+    <h1>Roku App Game</h1>
+    <div id="game-container">
+      <canvas id="mycanvas" width="640" height="360"></canvas>
+      <div id="game-info">
+        <p>Level: <span id="level">1</span></p>
+        <p>Life: <span id="life">5</span></p>
+        <p>Speed: <span id="speed">2</span></p>
+      </div>
+      <div id="game-controls">
+        <button id="leftButton" onclick="moveLeft()">Left</button>
+        <button id="rightButton" onclick="moveRight()">Right</button>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <!-- Footer with additional information or links -->
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
