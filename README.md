@@ -39,6 +39,4 @@ The JavaScript code handles the following tasks:
 - Support for lowercase letters and special characters for a more comprehensive conversion.
 - Option to choose different numeric representations for letters.
 - Error handling for invalid inputs and edge cases.
-
-Feel free to use, modify, or enhance the app according to your requirements. Happy coding!
-
+☁️💩☁️
