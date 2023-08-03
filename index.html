@@ -75,8 +75,7 @@ p, label {
         <p id="result"></p> <p>Converted Words:</p> <div id="convertedWords"></div>
     </ul>
 </ol>
-    <script>// app.js
-let convertedWords = []; // Array to store the converted words
+    <script>let convertedWords = []; // Array to store the converted words
 
 function enterLetter(letter) {
     var inputText = document.getElementById("inputText");
@@ -100,8 +99,7 @@ function convertAndDisplay() {
     document.getElementById('result').innerText = `Converted word: ${inputText}, Word value: ${wordValue}`;
 
     // Add the converted word to the array
-    const hint = checkHintsForWord(inputText);
-    convertedWords.push({ word: inputText, hint });
+    convertedWords.push(inputText);
 
     // Update the list of converted words
     displayConvertedWords();
@@ -121,8 +119,8 @@ function checkHintsForWord(word) {
 
     if (hintsUnlock.includes(wordUpperCase)) {
         hint = "Possible letters that unlock stuff";
-    } else if (hintsFirstLetter.includes(wordUpperCase.charAt(0))) {
-        hint = "First letter of potential words";
+    } else if (hintsFirstLetter.includes(wordUpperCase)) {
+        hint = "unlocks...?";
     } else if (knownWords[wordUpperCase]) {
         hint = knownWords[wordUpperCase];
     }
@@ -135,14 +133,14 @@ function displayPossibleLetters() {
     hintsElement.innerText = "Possible letters that unlock stuff:\nA.B.C.-.-.F.G.-.-.-.K.-.-.N.-.-.Q.-.S.-.-.-.-.X.-.-.";
 }
 
-function displayFirstLetter() {
-    const hintsElement = document.getElementById("hints");
-    hintsElement.innerText = "First letter of potential words:\n(D)EHI(J)L(M)OPRTUVWYZ";
-}
-
 function displayKnownWords() {
     const hintsElement = document.getElementById("hints");
     hintsElement.innerText = "Known words:\nMANIFEST = 99 Fabrication kits\nJACKWALL = unlocks music\nDREAMLAND = Extra game mode";
+}
+
+function displayFirstLetter() {
+    const hintsElement = document.getElementById("hints");
+    hintsElement.innerText = "First letter of potential words:\n(D)EHI(J)L(M)OPRTUVWYZ";
 }
 
 function displayConvertedWords() {
@@ -151,9 +149,10 @@ function displayConvertedWords() {
 
     if (convertedWords.length > 0) {
         const list = document.createElement("ul");
-        convertedWords.forEach(entry => {
+        convertedWords.forEach(word => {
             const listItem = document.createElement("li");
-            listItem.textContent = `${entry.word} - ${entry.hint}`;
+            const hint = checkHintsForWord(word);
+            listItem.textContent = `${word} - ${hint}`;
             list.appendChild(listItem);
         });
         convertedWordsElement.appendChild(list);
